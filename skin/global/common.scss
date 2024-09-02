@@ -1,0 +1,423 @@
+/* =================================================================== *
+   #   Copyright Xialia.com  2011-2019                                    *
+   #   FILE : src/drumee/skin/global/common
+   #   TYPE : Global styles, for the whole platform
+   # ==================================================================== */
+
+@import "mixins/colors/index.scss";
+@import "mixins/typo.scss";
+@import "mixins/vendor.scss";
+@import "mixins/z-index.scss";
+@import "mixins/utils.scss";
+@import "toolkit.scss";
+
+body {
+  min-height: 100vh;
+  background-color: rgb(248, 250, 252);
+  visibility: visible;
+}
+
+li,
+ul {
+  list-style-type: none;
+}
+
+a,
+u {
+  text-decoration: none;
+  color: #666;
+}
+
+#--router {
+  .widget.photo {
+    img {
+      display: none;
+    }
+  }
+  .wrapper.gateway {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// .creator__page{
+//   width: 100%;
+//   height: auto;
+//   background-color: rgba(200, 200, 200, 0.7);
+//   min-height: calc(100vh + 30px);
+//   &--desktop{
+//       min-width: 100%;
+//   }
+//   &--mobile{
+//     max-width: 512px;
+//     min-width: 300px !important;
+//     margin: auto;
+//   }
+// }
+
+// .sentinel{
+//   .entry-form__input{
+//     .input-details{
+//       position: absolute;
+
+//       font-size: 10px;
+
+//       top: 100%;
+//     }
+//   }
+// }
+
+// .canvas-box {
+//     transform-origin : center;
+// }
+
+// .debug{
+//     &--online-hash{
+//         background: palevioletred;
+//         border: #F73A3A solid 2px;
+//     }
+//     &--version-commit{
+//         &[data-state="1"]{
+//             color:rebeccapurple;
+//             &::before {
+//                 content: "\2705";
+//                 position: absolute;
+//                 left: -1.5em;
+//             }
+//         }
+//     }
+// }
+
+[data-flow].goodbye {
+  &__header1 {
+    @include typo($size: 24px, $line: 36px, $weight: 300, $color: #333333);
+  }
+  &__header2 {
+    @include typo($size: 48px, $line: 63px, $weight: 300, $color: #18a3ac);
+  }
+}
+[data-flow].welcome {
+  &__header1 {
+    @include typo($size: 36px, $line: 48px, $weight: 300, $color: #fa8540);
+  }
+  &__header2 {
+    @include typo($size: 24px, $line: 32px, $weight: 300, $color: $egrey-78);
+  }
+}
+
+[contenteditable].text-editable {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.save-style__btn.login {
+  cursor: pointer;
+  height: 36px;
+  width: 170px;
+  border-radius: 2px;
+  justify-content: center;
+  background-color: #18ac72;
+  border: 1px solid #18ac72;
+  text-align: center;
+  @include typo($size: 16px, $line: 34px, $weight: 400, $color: $ewhite);
+  &:hover {
+    background-color: #3fbd8d;
+    border-color: #3fbd8d;
+  }
+}
+
+[data-flow].c-top-bar,
+.c-top-bar {
+  $prefix: &;
+  width: 100%;
+  padding: 0 30px;
+  &:not(.c-top-bar--transparent) {
+    background-color: #476390;
+  }
+  &:not(.c-top-bar--desk) {
+    height: 60px;
+  }
+  &--desk {
+    height: 80px;
+  }
+
+  &--transparent {
+    background-color: transparent;
+  }
+  &__avatar-connect {
+    text-transform: uppercase;
+    cursor: pointer;
+    @include typo($size: 14px, $line: 19px, $weight: 400, $color: $ewhite);
+    svg {
+      margin-left: 16px;
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      border: 1px solid $ewhite;
+      border-radius: 2px;
+      fill: #ffffff;
+    }
+  }
+  &__logo {
+    &--white {
+      color: $ewhite;
+    }
+  }
+  &__name {
+    min-width: 0;
+    max-width: 210px;
+    padding: 0 20px;
+    @include overflow-text;
+    @include typo($size: 24px, $color: white, $line: 32px, $weight: 300);
+  }
+  &__menu {
+    $prefix: &;
+    &-small {
+      //probably derpecated
+      #{$prefix}-inner {
+        width: 140px;
+        background-color: $ewhite;
+        padding: 7px 0;
+        right: 0;
+        top: 17px;
+        position: absolute;
+        box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.14), 0 0 6px 0 #f8fafc, 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+        &:before {
+          box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.14), 0 0 6px 0 #f8fafc, 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+          position: absolute;
+          top: -5px;
+          right: 15px;
+          content: " ";
+          width: 10px;
+          height: 10px;
+          background-color: white;
+          transform: rotate(45deg);
+        }
+        &:after {
+          content: " ";
+          width: 100%;
+          height: 11px;
+          position: absolute;
+          top: 0;
+          background-color: $ewhite;
+        }
+      }
+      #{$prefix}-item {
+        padding: 0 22px;
+        width: 100%;
+        cursor: pointer;
+        @include typo($size: 12px, $line: 24px, $color: $egrey-78, $weight: 400);
+        &:hover {
+          color: $eviolet;
+        }
+        &:active {
+          background-color: $eviolet;
+          color: $ewhite;
+        }
+      }
+    }
+    &--big {
+      #{$prefix}-inner {
+        background-color: $ewhite;
+        border-radius: 4px;
+        box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.3);
+        &:before {
+          content: " ";
+          width: 20px;
+          height: 20px;
+          background: white;
+          position: absolute;
+          top: -4px;
+          right: 30px;
+          transform: rotate(45deg);
+        }
+      }
+      #{$prefix}-group {
+        padding: 10px 0;
+        position: relative;
+        &:not(:last-child):after {
+          content: " ";
+          position: absolute;
+          bottom: 0;
+          width: 80%;
+          height: 1px;
+          left: 0;
+          right: 0;
+          margin: auto;
+          border-bottom: 1px solid #dde2e8;
+        }
+      }
+      #{$prefix}-item {
+        cursor: pointer;
+        @include typo($line: 26px, $size: 16px, $weight: 400, $color: $egrey-78);
+        svg {
+          width: 40px;
+        }
+        &:hover {
+          background-color: $eviolet;
+          color: $ewhite;
+          svg {
+            color: $ewhite;
+          }
+        }
+        &--big {
+          svg {
+            width: 23px;
+            margin-right: 16px;
+            flex-shrink: 0;
+          }
+          span {
+            line-height: 21px;
+            .root-node {
+              white-space: pre-wrap;
+            }
+          }
+        }
+        &--contact svg {
+          padding: 0 5px;
+        }
+        &--blue svg {
+          color: #4a90e2;
+        }
+        &--light-blue svg {
+          color: #8a9dff;
+        }
+        &--pink svg {
+          color: #ff487a;
+        }
+        &--green svg {
+          color: #25b179;
+        }
+        &--light-green svg {
+          color: #54b9c0;
+        }
+        &--orange svg {
+          color: #fa8845;
+        }
+        &--violet svg {
+          color: #ac49bd;
+        }
+        &--hub svg {
+          color: #18a3ac;
+        }
+        &--grey svg {
+          color: $egrey-78;
+        }
+      }
+      #{$prefix}-items-block {
+        &--right-side {
+          .menu-items {
+            right: -20px;
+            margin-top: 20px;
+            width: 174px !important;
+            // overflow: hidden; //need to be shown for upper arrow and shadow
+            &[data-state="open"] {
+              z-index: 19999 !important;
+            }
+          }
+          #{$prefix}-inner {
+            &:before {
+              right: 30px;
+            }
+          }
+        }
+        &--left-side {
+          .menu-items {
+            left: -20px;
+            margin-top: 20px;
+          }
+          #{$prefix}-inner {
+            &:before {
+              left: 30px;
+            }
+          }
+        }
+      }
+    }
+    &-hub {
+      &-item {
+        margin: 3px 0;
+        height: 30px;
+        padding: 5px 15px;
+        width: 95%;
+        justify-content: flex-start;
+        cursor: pointer;
+        @include typo($size: 14px, $line: 18px, $weight: 300, $color: $egrey-49);
+        svg {
+          margin-right: 11px;
+          flex-shrink: 0;
+          fill: currentColor;
+        }
+        .note-content {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: 0;
+        }
+        &:hover {
+          color: $ewhite;
+          background-color: $eviolet;
+        }
+      }
+    }
+  }
+}
+
+//******* others common
+.slimScrollBarY {
+  cursor: pointer;
+}
+.ui-resizable-e {
+  width: 10px;
+  right: -10px;
+}
+.ui-resizable-s {
+  height: 10px;
+  bottom: -5px;
+}
+.ui-resizable-nw {
+  z-index: 200 !important;
+  width: 20px !important; //16px
+  height:  20px !important;//16px
+  top: -7px !important;
+  left: -7px !important;
+}
+.ui-resizable-ne {
+  z-index: 200 !important;
+  width:  20px !important;//16px
+  height: 20px !important;//16px
+  top: -7px !important;
+  left: calc(100% - 7px) !important;
+}
+.ui-resizable-se {
+  z-index: 200 !important;
+  width:  20px !important;//16px
+  height:  20px !important;//16px
+  top: calc(100% - 7px) !important;//calc(100% - 8px)
+  left: calc(100% - 7px) !important;//calc(100% - 8px) !important;
+}
+.ui-resizable-sw {
+  z-index: 200 !important;
+  width:  20px !important;//16px
+  height:  20px !important;//16px
+  top: calc(100% - 7px) !important;//calc(100% - 8px)
+  left: -7px !important;//-8px !important;
+}
+
+//@import "avatar";
+@import "box-shadow";
+@import "button";
+@import "container";
+@import "dialog";
+@import "error";
+@import "image";
+@import "input";
+@import "menu";
+@import "modal";
+@import "preset/ack";
+@import "reset";
+@import "spinner";
+@import "svg";
+@import "text";
+@import "utils";

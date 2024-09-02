@@ -1,0 +1,125 @@
+@import 'mixins/colors/index.scss';
+@import 'mixins/typo.scss';
+@import 'mixins/colors/index.scss';
+@import 'mixins/exports.scss';
+@import 'mixins/handles.scss';
+@import 'mixins/utils.scss';
+@import 'mixins/vendor.scss';
+@import 'mixins/z-index.scss';
+@import 'mixins/drumee';
+
+.invitation-message{
+  &__ui{
+    height: auto;
+    width: 260px;
+    padding: 25px 25px 15px;
+    margin: 0 auto;
+    background-color:$core-default-block-background; 
+    box-shadow: $drumee-shadow-box;
+   // box-shadow: 0 5px 3px 0 rgba(218, 227, 239, 0.14), 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 2px 5px 0 rgba(218, 227, 239, 0.46);    
+    border-radius:$default-border-radius;
+    position: absolute;
+    &:before {
+      content: " ";
+      width: 10px;
+      height: 10px;
+      background-color:$core-default-block-background; 
+      position: absolute;
+      top: -5px;
+      left: 150px;
+      transform: rotate(45deg);
+    }
+  }
+  &__button {
+    min-width:68px; // 60px;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    height:28px; //20px;
+    background-color:$btn-commit-background; //$egreen; //#18A3AC;
+    border-radius:$default-border-radius;
+    @include typo($line:20px,$size:14px,$color:$btn-commit-text); //$size:12px, $weight:400,
+    &:hover{
+      background-color:$btn-commit-background-hover;
+    }
+  }
+  &__textarea{
+    // @include typo($color:#494949,$size:14px,$line:16px,$weight:300);     
+    width: 100%;
+    height: auto;
+    //max-height: 4em;
+    border: none;
+    background-color: transparent;
+    min-height: 0; //1em;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0 auto;
+    padding: 0 2px; //0 4px;
+    @include typo($color:$core-default-text-color, $size:14px,$line:28px,$weight:400);
+    textarea{
+      @include typo($line: 18px, $size: 14px, $color: $core-default-text-color);
+      @include placeholder-input {
+        @include typo($color:$core-default-text-placeholder,$size:14px,$line:28px,$weight:300); //$weight:400
+      }
+     height: 35px;
+     min-height: 35px; 
+     border: none;
+     resize: none;
+     cursor: text;
+     width: 100%;
+     margin: 0 auto;
+     padding: 6px 2px; //0 2px;
+     border-bottom: 1px solid  $core-default-entry-border-bottom ;//$entry-border-bottom;
+     flex-shrink: 0;
+   //  min-height: 2em;
+     background: transparent;
+     letter-spacing: 0; 
+     overflow-wrap: break-word;
+    }
+    &.input{
+      width: 100%;
+      height: auto;
+      min-height: 0em;
+      overflow-y: visible;
+      padding: 0 2px;
+      @include typo($color:$core-default-text-color, $size:14px,$line:28px,$weight:400);
+    }
+    .entry-text{
+      width: 100%;
+      min-height: 0em;
+    }
+    // .note-content{
+    //   width: 100%;
+    //   min-width: 100px;
+    //   max-width: 100%;
+    //   min-height: 1.5em;   
+    //   border-bottom: 1px solid #d4d4d6;
+    //   cursor: text;
+    //   @include typo($color:$egrey-2f,$size:14px,$line:28px,$weight:400);
+    //  /* @include typo($color:$egrey-2f,$size:1em,$line:1.5em,$weight:400);*/
+    //   overflow-wrap: break-word;
+    //   overflow-y: scroll;
+    //   &:focus {
+    //     outline: none;
+    //   }
+    //   :before {
+    //     display: none;
+    //   }
+    //   &::-webkit-scrollbar-thumb {
+    //     background-color: rgb(250, 133, 64);
+    //     cursor: pointer;
+    //   }
+      
+    //   &[data-empty="1"]:before {
+    //     content: attr(placeholder);
+    //     @include typo($color:$egrey-89,$size:14px,$line:28px,$weight:400);        
+    //     height: 100%;
+    //     width: 100%;
+    //     display: block;
+    //     position: absolute;
+    //     min-width: 100px;
+    //     min-height: 1em;
+    //   }      
+    // }
+  }
+}

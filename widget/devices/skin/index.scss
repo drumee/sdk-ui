@@ -1,0 +1,135 @@
+/** ================================================================== *
+#   Copyright Xialia.com  2011-2020
+#   FILE : /src/drumee/builtins/window/conference/device/skin/index.scss
+#   TYPE : Component style
+# ===================================================================**/
+@import 'mixins/drumee';
+
+.media-devices{
+  &__topbar{
+    justify-content: space-between;
+    width: 300px;//285px;
+    margin-top: 10px;
+    padding: 5px 10px 5px 5px;
+    border-bottom: 1px solid $core-default-separator;
+  }
+  &__label{
+    &:hover{
+      color:$eviolet ;//#879bff;
+      cursor: pointer;
+    }
+  }
+  &__main{
+    height: 100%;
+    align-items: start;
+    justify-content: space-between;
+
+    .menu-topic-items{
+      &__wrapper{
+        left: -16px;
+        margin-top:-3px;// -1px;
+        padding: 10px;
+        margin-top: -8px;
+      //  box-shadow:$drumee-shadow-container;
+      }
+      background-color:$core-default-background; 
+    //  box-shadow:$drumee-shadow-container;// 0 6px 10px 1px rgba(63,79,117,.13), 0 7px 20px 0 rgba(86,65,113,.08), 0 3px 17px 0 rgba(194,185,203,0);
+      border-radius:$default-border-radius;
+      &:before{
+        content:" ";
+        width: 18px;
+        height: 18px;
+        background-color: $core-default-background;   
+        position:absolute;
+        left: 21px;
+        top:-7px;
+        z-index: 1;
+        transform:rotate(45deg);
+      } 
+    }
+    .menu-topic-trigger{
+      height: 100%;
+      align-items: center;
+    }
+  }
+  &__category{
+    //margin: 0 5px;
+    margin-left:10px;//8px;
+    width: auto;
+    // &[data-radio="off"]{
+    //   display: none;
+    // }
+    // &.audioinput{
+    //   margin-left:8px;
+    // }
+    // &.audiooutput{
+    //   margin-left:-89px;//-3px;
+    // }
+    // &.videoinput{
+    //   margin-left:-91px;//-16px;
+    // }
+    &[data-state="0"]{
+      display: none;
+      //visibility: hidden;
+    }
+  }
+  &__list{
+    padding:5px 10px 5px 5px;
+  }
+  &__tab{
+   // margin:0 10px;// 0 5px;
+    //min-width: 80px;
+    cursor: pointer;
+    &[data-radio="on"] {
+      color:$core-default-text-reverse; 
+      background-color:$core-default-background-hover;
+      padding:0 10px;
+    }
+    &[data-radio="off"]{
+      opacity: 0.5;
+      padding:0 10px;
+    }
+    //@include typo($color:$main-grey,$size:16px,$line:19px,$weight:400);
+    @include typo($color:$main-grey,$size:14px,$line:19px,$weight:400);
+  }
+  &__icon{
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    color : $ewhite;
+    cursor: pointer;
+      &.editbox_cog{
+        width: 18px;
+        height: 18px;
+        color: $ewhite;//#fff;
+        cursor: pointer;
+        margin-left: 16px;
+        padding: 0px;
+      }
+    &:hover{
+      color:$eviolet ;//#879bff;
+      opacity:1;
+    }
+    // &[data-state="0"]{
+    //   &:before{
+    //     content : " ";
+    //     height: 2px;
+    //     width:30px;
+    //     background-color: #EA4D44;
+    //     position: absolute;
+    //     transform:rotate(-45deg);
+    //     top: 19px;
+    //     left: 2px;
+    //   }
+    // }
+  }
+  &__checkbox{
+    width: 20px;
+    height: 20px;
+    color : $egrey-2f;
+    padding: 3px; //4px;
+  }
+  &__label{
+    @include typo($color: $egrey-2f, $weight: 400, $line: 20px, $size: 12px);
+  }
+}

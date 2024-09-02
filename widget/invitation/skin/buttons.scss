@@ -1,0 +1,112 @@
+
+.invitation__container{
+  &-commands{
+    width: 100%;
+    justify-content: center;
+    &[data-active="0"]{
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    &[data-state="open"]{
+      z-index: 100 !important;
+    }
+    .dialog__button--submit{
+      margin: revert;//unset;
+      min-width: 115px;
+      height:35px;
+      @include typo($size:15px,$line:25px);
+    }
+  }
+  &-options{
+    &[data-active="0"]{
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+  &-buttons{
+    color: $core-default-icon-neutral; 
+    margin: 15px auto 2px;//15px auto 0 auto;//auto;
+    &[data-state="0"]{
+      pointer-events: none;
+      opacity: 0.5;
+      &:hover{
+        color: $core-default-thinline-icon-hover;//#7891ff;//$default-icon-hover;
+        opacity: 1;
+      }
+    }
+    &--option{
+      &.permission{
+        margin-left: 20px;
+      }
+      &.message{
+        margin-right: 10px;
+      }
+      cursor: pointer;
+      margin : 0 10px;
+      width: 30px;
+      height: 30px;
+      padding: 5px;
+  //   opacity: .5;
+      &:hover{
+        color: $core-default-thinline-icon-hover;// #7891ff;// $default-icon-hover;
+        opacity: 1;
+      }
+      &[data-state="1"]{
+        background-color: $core-default-background-hover ;
+        border-radius:$default-border-radius;
+        //border-radius: 2px;
+        color: $ewhite;
+      }
+    }
+  }
+
+  &--secondary-btn {
+    align-items: center;
+    border-radius:$default-border-radius;
+    border: 1px solid $btn-rollback-border;
+    cursor: pointer;
+    height: 35px;
+    justify-content: center;
+    margin: 0px 10px 0px 0px;
+    min-width: 115px;
+    padding: 0 12px;
+    @include typo($size:15px,$line:25px,$color:$btn-rollback-text);
+
+    &[data-editable="0"] {
+      display: none;
+    }
+
+    &:hover {
+      border:2px solid $btn-rollback-text-hover;
+      color: $btn-rollback-text-hover;
+    }
+  }
+}
+// &__icon--plus{
+//   // width: 14px;
+//   // height: 14px;
+//   padding: 9px;
+//   cursor: pointer;
+//   margin : 0 10px;
+//   width: 30px;
+//   height: 30px;
+//   padding: 5px;
+//   // padding: 3px;
+//   // z-index: 2000;
+//   // margin: 10px 0 0 16px;
+//   // margin: 7px 0 0 10px;
+//   background: #FA8540;
+//   border-radius: 2px;
+//   color: #FFFFFF;
+//   // cursor: pointer;
+//   // flex-shrink: 0;  
+//   // display: flex;
+//   // position: absolute;
+//   // // right: 0;
+//   // right: 25px;
+//   // &[data-state="0"]{
+//   //   pointer-events: none;
+//   //   opacity: 0.5;
+//   // }
+// }
+
